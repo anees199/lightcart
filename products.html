@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse LightCart products with filters, sorting, quick view, wishlist, and cart actions.">
+  <title>Products | LightCart</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header"></header>
+  <main class="page">
+    <section class="page-hero reveal">
+      <p class="eyebrow">Marketplace catalog</p>
+      <h1>Products</h1>
+      <p>Filter deals, compare products, save favorites, and add premium picks to cart.</p>
+    </section>
+    <section class="shop-layout">
+      <aside class="filters glass reveal">
+        <h2>Filters</h2>
+        <label>Search<input id="productSearch" type="search" placeholder="Product name"></label>
+        <label>Category<select id="categoryFilter"><option value="all">All categories</option></select></label>
+        <label>Sort<select id="sortProducts"><option value="featured">Featured</option><option value="low">Price low to high</option><option value="high">Price high to low</option><option value="rating">Top rated</option></select></label>
+        <label>Max price<input id="priceFilter" type="range" min="20" max="500" value="500"><span id="priceValue">$500</span></label>
+      </aside>
+      <section class="catalog reveal">
+        <div class="section-heading">
+          <h2>All Products</h2>
+          <button class="button ghost" data-compare-open>Compare</button>
+        </div>
+        <div class="skeleton-grid" data-skeleton></div>
+        <div class="product-grid" id="productsGrid"></div>
+      </section>
+    </section>
+    <section class="section reveal">
+      <div class="section-heading"><h2>Recently Viewed</h2></div>
+      <div class="carousel" data-recently-viewed></div>
+    </section>
+  </main>
+  <footer class="site-footer"></footer>
+  <dialog class="quick-view" id="quickView"></dialog>
+  <dialog class="quick-view" id="compareDialog"></dialog>
+  <button class="back-top" aria-label="Back to top">^</button>
+  <button class="chat-fab" aria-label="Open chat support">Chat</button>
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

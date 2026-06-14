@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LightCart is a premium responsive e-commerce marketplace for electronics, fashion, home, beauty, sports, gaming, books, toys, and accessories.">
+  <title>LightCart | Premium Online Marketplace</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="loader" aria-hidden="true"><span></span><strong>LightCart</strong></div>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Primary navigation">
+      <a href="index.html" class="brand" aria-label="LightCart home"><span>Light</span>Cart</a>
+      <button class="icon-button menu-toggle" aria-label="Open menu">Menu</button>
+      <form class="search-form" role="search">
+        <input type="search" id="globalSearch" placeholder="Search phones, shoes, lamps..." aria-label="Search products">
+        <button type="submit">Search</button>
+        <div class="suggestions" aria-label="Search suggestions"></div>
+      </form>
+      <div class="nav-actions">
+        <button class="icon-button theme-toggle" aria-label="Toggle dark mode">DM</button>
+        <a href="wishlist.html" class="nav-pill">W <span>Wishlist</span></a>
+        <a href="cart.html" class="nav-pill cart-link">C <span>Cart</span><b class="cart-count">0</b></a>
+      </div>
+      <div class="nav-links">
+        <a href="products.html">Products</a>
+        <a href="categories.html">Categories</a>
+        <a href="search.html">Search</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="mega-menu">
+        <a href="categories.html#electronics">Electronics</a>
+        <a href="categories.html#fashion">Fashion</a>
+        <a href="categories.html#home">Home & Living</a>
+        <a href="categories.html#beauty">Beauty</a>
+        <a href="categories.html#gaming">Gaming</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Summer mega sale is live</p>
+        <h1>LightCart</h1>
+        <p>Discover premium daily deals, curated brands, fast checkout, and marketplace energy built for every screen.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="products.html">Shop Deals</a>
+          <a class="button ghost" href="categories.html">Explore Categories</a>
+        </div>
+      </div>
+      <div class="deal-panel glass reveal">
+        <span>Flash Deal</span>
+        <h2>Up to 55% off smart essentials</h2>
+        <div class="countdown" data-countdown>
+          <b>00</b><b>00</b><b>00</b><b>00</b>
+        </div>
+      </div>
+    </section>
+
+    <section class="category-strip reveal" aria-label="Popular categories">
+      <a href="categories.html#electronics">Phones</a>
+      <a href="categories.html#fashion">Sneakers</a>
+      <a href="categories.html#home">Decor</a>
+      <a href="categories.html#beauty">Beauty</a>
+      <a href="categories.html#gaming">Gaming</a>
+      <a href="categories.html#books">Books</a>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Handpicked</p>
+          <h2>Featured Products</h2>
+        </div>
+        <a href="products.html">View all</a>
+      </div>
+      <div class="product-grid" data-product-section="featured"></div>
+    </section>
+
+    <section class="promo-band reveal">
+      <div>
+        <p class="eyebrow">Marketplace moments</p>
+        <h2>Daily drops, verified sellers, effortless checkout.</h2>
+      </div>
+      <a class="button primary" href="products.html">Browse New Arrivals</a>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">What shoppers love</p>
+          <h2>Trending Products</h2>
+        </div>
+      </div>
+      <div class="carousel" data-product-section="trending"></div>
+    </section>
+
+    <section class="section split reveal">
+      <div>
+        <p class="eyebrow">Best sellers</p>
+        <h2>Top picks moving fast</h2>
+        <p>Real-time style merchandising with compact cards, discount badges, ratings, and quick actions.</p>
+        <div class="stats">
+          <strong data-counter="120">0</strong><span>Brands</span>
+          <strong data-counter="48">0</strong><span>Hour delivery</span>
+          <strong data-counter="92">0</strong><span>Buyer score</span>
+        </div>
+      </div>
+      <div class="product-grid compact" data-product-section="bestsellers"></div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Popular Categories</p>
+          <h2>Shop by department</h2>
+        </div>
+      </div>
+      <div class="category-grid" data-categories></div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Powered by taste</p>
+          <h2>Recommended for you</h2>
+        </div>
+      </div>
+      <div class="ai-recommend glass">
+        <div>
+          <h3>AI-style recommendation</h3>
+          <p>Based on browsing signals: smart home, travel gear, clean design, and high-rated deals.</p>
+        </div>
+        <div class="product-grid compact" data-product-section="recommended"></div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Top brands</p>
+          <h2>Trusted marketplace names</h2>
+        </div>
+      </div>
+      <div class="brand-row">
+        <span>Nova</span><span>Auralux</span><span>Zenith</span><span>Orbit</span><span>Vero</span><span>PixelPro</span>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Loved by customers</p>
+          <h2>Reviews that feel earned</h2>
+        </div>
+      </div>
+      <div class="testimonial-slider" data-testimonials></div>
+    </section>
+
+    <section class="newsletter reveal">
+      <h2>Get the brightest deals first</h2>
+      <p>Weekly drops, flash sale alerts, and curated recommendations.</p>
+      <form data-newsletter>
+        <input type="email" placeholder="Email address" aria-label="Email address" required>
+        <button class="button primary" type="submit">Subscribe</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer"></footer>
+  <button class="back-top" aria-label="Back to top">^</button>
+  <button class="chat-fab" aria-label="Open chat support">Chat</button>
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
