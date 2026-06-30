@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Log in to LightCart to manage cart, wishlist, and checkout.">
+  <title>Login | LightCart</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header"></header>
+  <main class="page">
+    <section class="page-hero reveal"><p class="eyebrow">Welcome back</p><h1>Login</h1><p>Continue shopping with your saved cart and wishlist.</p></section>
+    <section class="contact-grid reveal">
+      <form class="contact-form glass" id="loginForm">
+        <label>Email or Username<input required name="identifier" type="text" placeholder="you@example.com"></label>
+        <label>Password<input required name="password" type="password" placeholder="Your password"></label>
+        <button class="button primary" type="submit">Login</button>
+      </form>
+      <div class="content-band">
+        <h2>New to LightCart?</h2>
+        <p>Create an account to save wishlist items and place orders.</p>
+        <a class="button ghost" href="signup.html">Create Account</a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"></footer>
+  <button class="back-top" aria-label="Back to top">^</button>
+  <button class="chat-fab" aria-label="Open chat support">Chat</button>
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
