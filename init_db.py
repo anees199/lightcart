@@ -22,7 +22,14 @@ CATEGORIES = [
 CATALOG = {
     "Electronics": {
         "brands": ["Auralux", "PixelPro", "Orbit", "VoltEdge", "NovaTech", "LumaCore"],
-        "items": ["Wireless Headphones", "Compact 5G Phone", "Smartwatch", "Bluetooth Speaker", "USB-C Hub", "Desk Monitor", "Action Camera", "Tablet", "Smart Lamp", "Charging Dock", "Mechanical Keyboard", "Noise Cancelling Earbuds"],
+        "items": [
+            "Wireless Headphones", "Compact 5G Phone", "Smartwatch", "Bluetooth Speaker",
+            "USB-C Hub", "Desk Monitor", "Action Camera", "Tablet", "Smart Lamp",
+            "Charging Dock", "Mechanical Keyboard", "Noise Cancelling Earbuds",
+            "Portable Projector", "Wi-Fi Mesh Router", "E-Reader", "Smart Doorbell",
+            "4K Webcam", "Power Bank", "Laptop Stand", "Wireless Charger",
+            "Mini Drone", "Soundbar", "Fitness Smart Ring", "Photo Printer",
+        ],
         "images": [
             "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80",
             "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
@@ -33,7 +40,14 @@ CATALOG = {
     },
     "Fashion": {
         "brands": ["NovaFit", "Threadline", "Vesper", "Urban Loom", "North & Co", "Aster"],
-        "items": ["Knit Runner Sneakers", "Cotton Overshirt", "Travel Hoodie", "Denim Jacket", "Slim Chinos", "Everyday Tee", "Linen Shirt", "Rain Shell", "Chelsea Boots", "Canvas Tote", "Ribbed Cardigan", "Active Joggers"],
+        "items": [
+            "Knit Runner Sneakers", "Cotton Overshirt", "Travel Hoodie", "Denim Jacket",
+            "Slim Chinos", "Everyday Tee", "Linen Shirt", "Rain Shell", "Chelsea Boots",
+            "Canvas Tote", "Ribbed Cardigan", "Active Joggers", "Puffer Vest",
+            "Pleated Skirt", "Tailored Blazer", "Suede Loafers", "Fleece Pullover",
+            "Wide-Leg Trousers", "Performance Polo", "Satin Slip Dress",
+            "Cargo Shorts", "Wool Beanie", "Quilted Jacket", "Leather Belt",
+        ],
         "images": [
             "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80",
             "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80",
@@ -44,7 +58,15 @@ CATALOG = {
     },
     "Home & Living": {
         "brands": ["Orbit", "CloudSoft", "Hearthly", "CasaVale", "Elm & Stone", "BrightNest"],
-        "items": ["LED Desk Lamp", "Cotton Bedding Kit", "Ceramic Dinner Set", "Woven Throw Blanket", "Aroma Diffuser", "Storage Basket", "Side Table", "Wall Shelf", "Bath Towel Set", "Planter Trio", "Kitchen Scale", "Velvet Cushion"],
+        "items": [
+            "LED Desk Lamp", "Cotton Bedding Kit", "Ceramic Dinner Set",
+            "Woven Throw Blanket", "Aroma Diffuser", "Storage Basket", "Side Table",
+            "Wall Shelf", "Bath Towel Set", "Planter Trio", "Kitchen Scale",
+            "Velvet Cushion", "Bamboo Shoe Rack", "Glass Coffee Table",
+            "Linen Curtain Set", "Memory Foam Pillow", "Tabletop Fire Bowl",
+            "Nonstick Cookware Set", "Stoneware Vase", "Laundry Hamper",
+            "Reading Floor Lamp", "Counter Stool", "Serving Tray", "Closet Organizer",
+        ],
         "images": [
             "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=900&q=80",
             "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80",
@@ -55,7 +77,15 @@ CATALOG = {
     },
     "Beauty": {
         "brands": ["Vero", "GlowKind", "LumaSkin", "Herbelle", "Solace", "PureLab"],
-        "items": ["Hydrating Skincare Set", "Vitamin C Serum", "Mineral Sunscreen", "Soft Matte Lip Kit", "Clay Mask", "Body Butter", "Repair Shampoo", "Conditioning Oil", "Brow Gel", "Facial Roller", "Cleanser Duo", "Fragrance Mist"],
+        "items": [
+            "Hydrating Skincare Set", "Vitamin C Serum", "Mineral Sunscreen",
+            "Soft Matte Lip Kit", "Clay Mask", "Body Butter", "Repair Shampoo",
+            "Conditioning Oil", "Brow Gel", "Facial Roller", "Cleanser Duo",
+            "Fragrance Mist", "Retinol Night Cream", "Scalp Scrub",
+            "Tinted Moisturizer", "Gel Nail Kit", "Makeup Brush Set",
+            "Eye Cream", "Hair Mask", "Exfoliating Toner", "Blush Palette",
+            "Cuticle Oil", "Cleansing Balm", "Aloe Face Mist",
+        ],
         "images": [
             "https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=900&q=80",
             "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=80",
@@ -66,7 +96,15 @@ CATALOG = {
     },
     "Sports": {
         "brands": ["Forge", "StrideLab", "PeakForm", "HydraPro", "FlexCore", "TrailMate"],
-        "items": ["Adjustable Dumbbells", "Yoga Mat", "Running Vest", "Foam Roller", "Training Gloves", "Resistance Bands", "Trail Bottle", "Cycling Lights", "Jump Rope", "Gym Duffel", "Recovery Ball", "Fitness Tracker Band"],
+        "items": [
+            "Adjustable Dumbbells", "Yoga Mat", "Running Vest", "Foam Roller",
+            "Training Gloves", "Resistance Bands", "Trail Bottle", "Cycling Lights",
+            "Jump Rope", "Gym Duffel", "Recovery Ball", "Fitness Tracker Band",
+            "Pickleball Paddle Set", "Ankle Weights", "Speed Ladder",
+            "Compression Socks", "Balance Board", "Pilates Ring", "Swim Goggles",
+            "Tennis Backpack", "Massage Gun", "Hiking Poles", "Bike Repair Kit",
+            "Weighted Vest",
+        ],
         "images": [
             "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=900&q=80",
             "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80",
@@ -77,7 +115,15 @@ CATALOG = {
     },
     "Gaming": {
         "brands": ["Zenith", "ArcadeX", "PulsePlay", "Vertex", "NeonForge", "HyperPad"],
-        "items": ["Pro Gaming Controller", "RGB Headset", "Streaming Microphone", "Mouse Pad XL", "Gaming Mouse", "Tactile Keyboard", "Console Stand", "Capture Card", "Thumbstick Kit", "Desk Light Bar", "VR Carry Case", "Cooling Dock"],
+        "items": [
+            "Pro Gaming Controller", "RGB Headset", "Streaming Microphone",
+            "Mouse Pad XL", "Gaming Mouse", "Tactile Keyboard", "Console Stand",
+            "Capture Card", "Thumbstick Kit", "Desk Light Bar", "VR Carry Case",
+            "Cooling Dock", "Racing Wheel", "Arcade Fight Stick", "Game Storage Tower",
+            "Portable Monitor", "Controller Charging Station", "Streaming Keypad",
+            "Quest Link Cable", "Retro Handheld Console", "Gaming Chair Mat",
+            "HDMI Switch", "FPS Aim Trainer Kit", "Console Travel Case",
+        ],
         "images": [
             "https://images.unsplash.com/photo-1592840496694-26d035b52b48?auto=format&fit=crop&w=900&q=80",
             "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=900&q=80",
@@ -88,7 +134,16 @@ CATALOG = {
     },
     "Books": {
         "brands": ["Page & Pine", "Northstar Reads", "InkWell", "StudyCraft", "PaperTrail", "BrightLeaf"],
-        "items": ["Reading Light", "Hardcover Journal", "Cookbook Collection", "Design Notebook", "Mystery Box Set", "Language Workbook", "Art History Guide", "Business Playbook", "Poetry Anthology", "Kids Story Set", "Planner", "Travel Atlas"],
+        "items": [
+            "Reading Light", "Hardcover Journal", "Cookbook Collection",
+            "Design Notebook", "Mystery Box Set", "Language Workbook",
+            "Art History Guide", "Business Playbook", "Poetry Anthology",
+            "Kids Story Set", "Planner", "Travel Atlas", "Book Stand",
+            "Classic Novel Set", "Guided Wellness Journal", "Science Activity Book",
+            "Graphic Novel Bundle", "Garden Handbook", "Memoir Collection",
+            "Desk Dictionary", "Bookmark Set", "Book Club Kit", "Fountain Pen",
+            "Writing Prompt Deck",
+        ],
         "images": [
             "https://images.unsplash.com/photo-1526243741027-444d633d7365?auto=format&fit=crop&w=900&q=80",
             "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80",
@@ -99,7 +154,15 @@ CATALOG = {
     },
     "Toys": {
         "brands": ["MiniWorks", "BrightPlay", "PuzzlePop", "TinyTrail", "KinderLab", "HappyStack"],
-        "items": ["Builder Toy Set", "Wooden Puzzle", "Art Activity Kit", "Plush Friend", "STEM Robot", "Magnetic Tiles", "Outdoor Bubble Set", "Board Game", "Dollhouse Kit", "Dinosaur Pack", "Train Track Set", "Craft Bead Box"],
+        "items": [
+            "Builder Toy Set", "Wooden Puzzle", "Art Activity Kit", "Plush Friend",
+            "STEM Robot", "Magnetic Tiles", "Outdoor Bubble Set", "Board Game",
+            "Dollhouse Kit", "Dinosaur Pack", "Train Track Set", "Craft Bead Box",
+            "Remote Control Car", "Pretend Kitchen Set", "Balance Bike",
+            "Stacking Blocks", "Science Lab Kit", "Water Table", "Kite Set",
+            "Marble Run", "Dress-Up Trunk", "Musical Mat", "Space Explorer Set",
+            "Memory Card Game",
+        ],
         "images": [
             "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=900&q=80",
             "https://images.unsplash.com/photo-1558060370-d644479cb6f7?auto=format&fit=crop&w=900&q=80",
@@ -110,7 +173,15 @@ CATALOG = {
     },
     "Accessories": {
         "brands": ["Atlas", "CarryWell", "Stone & Loop", "MetroHide", "AeroCase", "Brassline"],
-        "items": ["Weekender Travel Bag", "Leather Wallet", "Polarized Sunglasses", "Minimal Watch", "Laptop Sleeve", "Silk Scarf", "Key Organizer", "Crossbody Bag", "Travel Pouch Set", "Card Holder", "Phone Case", "Canvas Backpack"],
+        "items": [
+            "Weekender Travel Bag", "Leather Wallet", "Polarized Sunglasses",
+            "Minimal Watch", "Laptop Sleeve", "Silk Scarf", "Key Organizer",
+            "Crossbody Bag", "Travel Pouch Set", "Card Holder", "Phone Case",
+            "Canvas Backpack", "Passport Holder", "Jewelry Organizer",
+            "Watch Strap Set", "Commuter Umbrella", "Packing Cubes",
+            "Reusable Tote Set", "Laptop Backpack", "RFID Money Clip",
+            "Tablet Folio", "Hair Clip Set", "Luggage Tag Duo", "Tech Cable Roll",
+        ],
         "images": [
             "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80",
             "https://images.unsplash.com/photo-1523779105320-d1cd346ff52b?auto=format&fit=crop&w=900&q=80",
@@ -129,9 +200,8 @@ def build_products(category):
     data = CATALOG[category.name]
     low, high = data["price"]
     products = []
-    for index in range(24):
+    for index, item in enumerate(data["items"]):
         brand = data["brands"][index % len(data["brands"])]
-        item = data["items"][index % len(data["items"])]
         qualifier = QUALIFIERS[index % len(QUALIFIERS)]
         price = round(random.uniform(low, high), 2)
         discount = random.choice([0, 10, 12, 15, 18, 20, 25, 30, 35])

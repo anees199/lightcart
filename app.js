@@ -21,6 +21,15 @@ const faqs = [
 const money = value => `$${Number(value || 0).toFixed(2)}`;
 const getStore = key => JSON.parse(localStorage.getItem(key) || "[]");
 const setStore = (key, value) => localStorage.setItem(key, JSON.stringify(value));
+const uniqueProducts = list => {
+  const seen = new Set();
+  return list.filter(product => {
+    const key = `${product.category_slug || product.category}:${product.name}`.toLowerCase();
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+};
 
 async function api(path, options = {}) {
   const response = await fetch(path, {
@@ -41,7 +50,7 @@ async function bootstrapData() {
   ]);
   currentUser = me.user;
   categories = categoryData.categories;
-  products = productData.products;
+  products = uniqueProducts(productData.products);
   if (currentUser) {
     [cartState, wishlistState] = await Promise.all([api("/api/cart"), api("/api/wishlist")]);
   }
@@ -108,17 +117,17 @@ function productCard(product) {
         <img src="${product.img}" alt="${product.name}" loading="lazy">
       </a>
       <div class="card-actions">
-        <button class="icon-button" data-wishlist="${product.id}" aria-label="Add ${product.name} to wishlist">W</button>
-        <button class="icon-button" data-quick="${product.id}" aria-label="Quick view ${product.name}">View</button>
+        <button class="icon-button" data-wishlist="${product.id}" aria-label="Add ${product.name} to wishlist" title="Save">Save</button>
+        <button class="icon-button" data-quick="${product.id}" aria-label="Quick view ${product.name}" title="Quick view">Quick</button>
       </div>
       <div class="product-info">
-        <p class="meta">${product.category} · ${product.brand}</p>
+        <p class="meta">${product.category} / ${product.brand}</p>
         <h3><a href="product.html?id=${product.id}">${product.name}</a></h3>
-        <div class="rating">* ${product.rating} <span class="meta">(${product.reviews})</span></div>
+        <div class="rating">Rating ${product.rating} <span class="meta">(${product.reviews})</span></div>
         <div class="price-row"><span class="price">${money(product.price)}</span><span class="old-price">${money(product.old)}</span></div>
         <div class="product-buttons">
           <button class="button primary" data-cart="${product.id}">Add to Cart</button>
-          <button class="icon-button" data-compare="${product.id}" aria-label="Compare ${product.name}">Cmp</button>
+          <button class="icon-button" data-compare="${product.id}" aria-label="Compare ${product.name}" title="Compare">Compare</button>
         </div>
       </div>
     </article>`;
@@ -126,18 +135,40 @@ function productCard(product) {
 
 function renderProducts(target, list) {
   if (!target) return;
-  target.innerHTML = list.length ? list.map(productCard).join("") : `<div class="empty-state">No products found.</div>`;
+  const uniqueList = uniqueProducts(list);
+  target.innerHTML = uniqueList.length ? uniqueList.map(productCard).join("") : `<div class="empty-state">No products found.</div>`;
 }
 
 function renderHomeSections() {
-  const sections = {
-    featured: products.filter(p => p.tags.includes("featured")).slice(0, 4),
-    trending: products.filter(p => p.tags.includes("trending")).slice(0, 10),
-    bestsellers: products.filter(p => p.tags.includes("bestseller")).slice(0, 4),
-    recommended: products.filter(p => p.tags.includes("recommended")).slice(0, 2),
-    related: products.slice(0, 8)
+  const used = new Set();
+  const pick = (list, count) => {
+    const chosen = [];
+    uniqueProducts(list).forEach(product => {
+      if (chosen.length >= count || used.has(product.id)) return;
+      used.add(product.id);
+      chosen.push(product);
+    });
+    uniqueProducts(products).forEach(product => {
+      if (chosen.length >= count || used.has(product.id)) return;
+      used.add(product.id);
+      chosen.push(product);
+    });
+    return chosen;
   };
-  document.querySelectorAll("[data-product-section]").forEach(el => renderProducts(el, sections[el.dataset.productSection] || products.slice(0, 4)));
+  const currentId = Number(new URLSearchParams(location.search).get("id") || 0);
+  const current = products.find(p => p.id === currentId);
+  const sections = {
+    featured: pick(products.filter(p => p.tags.includes("featured")), 4),
+    trending: pick(products.filter(p => p.tags.includes("trending")), 10),
+    bestsellers: pick(products.filter(p => p.tags.includes("bestseller")), 4),
+    recommended: pick(products.filter(p => p.tags.includes("recommended")), 2),
+    related: uniqueProducts(
+      current
+        ? products.filter(p => p.category === current.category && p.id !== current.id)
+        : products
+    ).slice(0, 8)
+  };
+  document.querySelectorAll("[data-product-section]").forEach(el => renderProducts(el, sections[el.dataset.productSection] || uniqueProducts(products).slice(0, 4)));
 }
 
 function renderCategories() {
@@ -171,7 +202,7 @@ function setupCatalog() {
   }
 
   function apply() {
-    let list = [...products];
+    let list = uniqueProducts(products);
     const q = (search?.value || "").toLowerCase();
     const cat = categoryFilter?.value || "all";
     const max = Number(price?.value || 9999);
@@ -249,7 +280,7 @@ function renderWishlist() {
     grid.innerHTML = `<div class="empty-state">Please log in to view your wishlist.</div>`;
     return;
   }
-  const list = (wishlistState.items || []).map(item => item.product);
+  const list = uniqueProducts((wishlistState.items || []).map(item => item.product));
   renderProducts(grid, list);
   if (!list.length) grid.innerHTML = `<div class="empty-state">Your wishlist is empty.</div>`;
 }
@@ -269,27 +300,27 @@ function renderDetail() {
       <div class="thumbs">${gallery.map(img => `<button data-thumb="${img}"><img src="${img}" alt=""></button>`).join("")}</div>
     </div>
     <div class="detail-panel">
-      <p class="eyebrow">${product.category}</p><h1>${product.name}</h1><div class="rating">* ${product.rating} <span class="meta">${product.reviews} reviews</span></div>
+      <p class="eyebrow">${product.category}</p><h1>${product.name}</h1><div class="rating">Rating ${product.rating} <span class="meta">${product.reviews} reviews</span></div>
       <div class="price-row"><span class="price">${money(product.price)}</span><span class="old-price">${money(product.old)}</span><span class="badge" style="position:static">${product.badge}</span></div>
       <p>${product.description}</p>
       <ul class="specs"><li>Brand: ${product.brand}</li><li>Stock available: ${product.stock}</li><li>30-day return support</li><li>Verified LightCart marketplace seller</li></ul>
       <div class="hero-actions"><button class="button primary" data-cart="${product.id}">Add to Cart</button><button class="button ghost" data-wishlist="${product.id}">Save Favorite</button></div>
       <div class="review"><strong>Customer review</strong><p class="meta">"Premium feel, quick delivery, and exactly as shown."</p></div>
     </div>`;
-  renderProducts(document.querySelector("[data-bundle]"), [product, ...products.filter(p => p.category === product.category && p.id !== product.id).slice(0, 1)]);
+  renderProducts(document.querySelector("[data-bundle]"), [product, ...uniqueProducts(products.filter(p => p.category === product.category && p.id !== product.id)).slice(0, 1)]);
 }
 
 function renderRecentlyViewed() {
   const el = document.querySelector("[data-recently-viewed]");
   if (!el) return;
-  renderProducts(el, products.filter(p => getStore("lightcart_recent").includes(p.id)).slice(0, 6));
+  renderProducts(el, uniqueProducts(products.filter(p => getStore("lightcart_recent").includes(p.id))).slice(0, 6));
 }
 
 function quickView(id) {
   const dialog = document.querySelector("#quickView");
   const product = products.find(p => p.id === id);
   if (!dialog || !product) return;
-  dialog.innerHTML = `<div class="dialog-grid"><img src="${product.img}" alt="${product.name}"><div><button class="icon-button" onclick="this.closest('dialog').close()" aria-label="Close">x</button><p class="eyebrow">${product.category}</p><h2>${product.name}</h2><p class="rating">* ${product.rating} (${product.reviews})</p><p class="price">${money(product.price)}</p><p class="meta">${product.description}</p><button class="button primary" data-cart="${product.id}">Add to Cart</button></div></div>`;
+  dialog.innerHTML = `<div class="dialog-grid"><img src="${product.img}" alt="${product.name}"><div><button class="icon-button" onclick="this.closest('dialog').close()" aria-label="Close">x</button><p class="eyebrow">${product.category}</p><h2>${product.name}</h2><p class="rating">Rating ${product.rating} (${product.reviews})</p><p class="price">${money(product.price)}</p><p class="meta">${product.description}</p><button class="button primary" data-cart="${product.id}">Add to Cart</button></div></div>`;
   dialog.showModal();
 }
 
@@ -297,7 +328,7 @@ function compareDialog() {
   const dialog = document.querySelector("#compareDialog");
   if (!dialog) return;
   const selected = getStore("lightcart_compare").slice(-3);
-  const list = products.filter(p => selected.includes(p.id));
+  const list = uniqueProducts(products.filter(p => selected.includes(p.id)));
   dialog.innerHTML = `<button class="icon-button" onclick="this.closest('dialog').close()" aria-label="Close">x</button><h2>Product Comparison</h2><div class="product-grid compact">${list.length ? list.map(productCard).join("") : "<p class='empty-state'>Use the compare button on products to add items.</p>"}</div>`;
   dialog.showModal();
 }
